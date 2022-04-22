@@ -1,5 +1,12 @@
 node {
-    def MavenHome = tool name: 'Maven3.8.4'
+    #def MavenHome = tool name: 'Maven3.8.4'
+     agent {
+        docker {
+            image 'maven:3.8.5-openjdk-11'
+            args '-v /root/.m2:/root/.m2'
+        }
+    }
+
 
     stage('1-Clone the code') {
        git credentialsId: 'GitHubcredentials', url: 'https://github.com/mnforba/maven-web-application' 
