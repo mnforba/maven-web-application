@@ -13,8 +13,8 @@ node {
     stage('4-UploadArtifacts') {
        sh "${MavenHome}/bin/mvn deploy"
     }
-    stage ('5-Deploy-UAT') {
-       deploy adapters: [tomcat9(credentialsId: 'tomcatcredentials', path: '', url: 'http://54.175.4.27:7000/')], contextPath: null, war: 'target/*.war'
+   # stage ('5-Deploy-UAT') {
+    #   deploy adapters: [tomcat9(credentialsId: 'tomcatcredentials', path: '', url: 'http://54.175.4.27:7000/')], contextPath: null, war: 'target/*.war'
     }
     stage('6-EmailNotification') {
        emailext body: '''Hello Everyone,
