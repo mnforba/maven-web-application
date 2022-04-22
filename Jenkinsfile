@@ -1,5 +1,4 @@
 node {
-    #def MavenHome = tool name: 'Maven3.8.4'
      agent {
         docker {
             image 'maven:3.8.5-openjdk-11'
